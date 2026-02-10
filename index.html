@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD DevOps - GitHub Actions</title>
+    <style>
+        /* Reset et style global */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Conteneur principal (la carte) */
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+            width: 90%;
+        }
+
+        /* Titre */
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        /* Sous-titre / Description */
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Style du bouton */
+        button {
+            background-color: #0969da; /* Couleur GitHub Blue */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #064ba3;
+        }
+
+        /* Zone de résultat */
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            /*display: none; /* Caché par défaut */
+        }
+
+        .success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #34d399;
+        }
+
+        /* Petit footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>TD DevOps & CI/CD</h1>
+        <p>Cette page a été déployée automatiquement via un pipeline <strong>GitHub Actions</strong>.</p>
+        
+        <button id="actionBtn">Tester l'interaction JS</button>
+
+        <div id="result"></div>
+
+        <div class="footer">
+            Déployé depuis la branche <code>feature/github_pages</code>
+        </div>
+    </div>
+
+    <script>
+        const button = document.getElementById('actionBtn');
+        const resultDiv = document.getElementById('result');
+
+        button.addEventListener('click', () => {
+            const now = new Date().toLocaleTimeString();
+            
+            // Affiche le message
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'success'; // Ajoute la classe CSS
+            resultDiv.innerHTML = ` Bravo ! Le JavaScript fonctionne.<br>Heure du test : ${now}`;
+            
+            // Change le texte du bouton
+            button.innerText = "Réessayer";
+        });
+    </script>
+</body>
+</html>
